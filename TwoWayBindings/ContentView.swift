@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var pressCount: Int = 0
+    
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            
+            Text("Press count: \(pressCount)")
+            Button("Press me") {
+                pressCount += 1
+            }
+            .buttonStyle(.borderedProminent)
         }
-        .padding()
+        .font(.title2)
     }
 }
 
