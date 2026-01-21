@@ -14,6 +14,7 @@ struct ContentView: View {
     @State private var selectedColor: Color = .red
     @State private var selectedDate = Date()
     @State private var stepperValue = 1
+    @State private var sliderValue = 50.0
     
     
     var body: some View {
@@ -51,6 +52,17 @@ struct ContentView: View {
             Spacer()
             
             Stepper("Stepper value: \(stepperValue)", value: $stepperValue, in: 1...10)
+            
+            Spacer()
+            
+            Slider(value: $sliderValue, in:0...100) {
+                //Accessibiloity label
+            } minimumValueLabel: {
+                Image(systemName: "speaker.minus")
+            } maximumValueLabel: {
+                Image(systemName: "speaker.plus")
+            }
+            Text("slider value: \(Int(sliderValue))%")
             
             Spacer()
         }
